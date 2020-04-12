@@ -9,5 +9,6 @@
         <module name="n0tail" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="12" />
   </component>
 </project>
