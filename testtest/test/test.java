@@ -1,23 +1,29 @@
 import org.junit.Test;
-import n0tail.n0tail_Launcher;
+import Tail.N0tailLauncher;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class test {
 
-    private boolean equality(String output) throws IOException {
-        return Files.readAllLines(Paths.get(output)).equals(Files.readAllLines(Paths.get("testtest/resources/expectedOutput.txt")));
-    }
-
-    private final String[] args = {"-c", "7", "-o", "testtest/resources/output.txt", "testtest/resources/test1.txt"};
+    private final String[] args1 = {"-c", "7", "-o", "testtest/resources/output1.txt", "testtest/resources/test1.txt"};
+    private final String[] args2 = {"-o", "testtest/resources/output2.txt", "testtest/resources/test1.txt"};
+    private final String[] args3 = {"-n", "14", "-o", "testtest/resources/output3.txt", "testtest/resources/test1.txt"};
 
     @Test
     public void testing() throws IOException {
-        n0tail_Launcher.main(args);
-        String output = "testtest/resources/output.txt";
-        assertTrue(equality(output));
+        N0tailLauncher.main(args1);
+        assertEquals(Files.readAllLines(Paths.get("testtest/resources/output1.txt")),
+                Files.readAllLines(Paths.get("testtest/resources/expectedOutput1.txt")));
+        N0tailLauncher.main(args2);
+        assertEquals(Files.readAllLines(Paths.get("testtest/resources/output2.txt")),
+                Files.readAllLines(Paths.get("testtest/resources/expectedOutput2.txt")));
+        N0tailLauncher.main(args3);
+        assertEquals(Files.readAllLines(Paths.get("testtest/resources/output3.txt")),
+                Files.readAllLines(Paths.get("testtest/resources/expectedOutput3.txt")));
     }
 }
