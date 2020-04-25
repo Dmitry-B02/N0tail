@@ -71,7 +71,7 @@ public class N0tail {
     public void getTail(List<String> filesList) throws IOException {
         BufferedWriter writer = outputFileName != null ? Files.newBufferedWriter(Paths.get(outputFileName)) :
                 new BufferedWriter(new OutputStreamWriter(System.out)); // если не задан outputFile, то вывод на консоль
-        if (filesList != null) {
+        if (!filesList.isEmpty()) {
             for (String s : filesList) {         // рассматриваю каждый из файлов
                 ArrayList<String> currentFile = (ArrayList<String>) Files.readAllLines(Paths.get(s));
                 writer.write(s);                               // пишу имя файла, из которого взят хвост
