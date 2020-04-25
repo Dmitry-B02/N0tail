@@ -82,9 +82,7 @@ public class N0tail {
         } else {   // в консоли вместо currentFile будет список строк с консоли
             ArrayList<String> currentText = new ArrayList<>();
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            while (reader.readLine() != null) {
-                currentText.add(reader.readLine());
-            }
+            currentText.add(reader.readLine());
             choice(currentText, writer);
         }
     }
