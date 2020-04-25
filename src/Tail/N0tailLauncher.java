@@ -19,7 +19,7 @@ public class N0tailLauncher {
     private int rowsAmount;
 
     @Argument(metaVar = "InputName", usage = "Input file name")
-    private ArrayList<String> filesList = new ArrayList<String>();
+    private ArrayList<String> filesList = new ArrayList<>();
 
     public static void main(String[] args) {
         new N0tailLauncher().launch(args);
@@ -40,7 +40,7 @@ public class N0tailLauncher {
             N0tail tailObj = new N0tail(name, symbolsAmount, rowsAmount);
             tailObj.getTail(filesList);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Один из входных файлов отсутствует в файловой системе");
         }
     }
 }

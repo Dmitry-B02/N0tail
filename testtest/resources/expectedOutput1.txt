@@ -1,4 +1,3 @@
 testtest/resources/test1.txt
-5d6
-r57
-f
+аб
+в

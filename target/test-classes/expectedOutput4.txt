@@ -1,3 +1,4 @@
 testtest/resources/test1.txt
-аб
 в
+testtest/resources/test2.txt
+з
