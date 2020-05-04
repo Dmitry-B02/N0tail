@@ -1,6 +1,7 @@
 package Tail;
 
 import java.io.*;
+import java.nio.Buffer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayDeque;
@@ -9,13 +10,13 @@ import java.util.List;
 
 public class N0tail {
 
-    private final String outputFileName;
+    private final File outputFileName;
 
     private int symTailLength;
 
     private int rowTailLength;
 
-    public N0tail(String outputFileName, Integer symTailLength, Integer rowTailLength) {
+    public N0tail(File outputFileName, Integer symTailLength, Integer rowTailLength) {
         this.outputFileName = outputFileName;
         this.symTailLength = symTailLength;
         this.rowTailLength = rowTailLength;
@@ -69,7 +70,7 @@ public class N0tail {
     }
 
     public void getTail(List<String> filesList) throws IOException {
-        BufferedWriter writer = outputFileName != null ? Files.newBufferedWriter(Paths.get(outputFileName)) :
+        BufferedWriter writer = outputFileName != null ? new BufferedWriter(new FileWriter(outputFileName)) :
                 new BufferedWriter(new OutputStreamWriter(System.out)); // если не задан outputFile, то вывод на консоль
         if (!filesList.isEmpty()) {
             for (String s : filesList) {         // рассматриваю каждый из файлов
