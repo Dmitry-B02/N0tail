@@ -1,0 +1,3 @@
+testtest/resources/test1.txt
+аб
+в

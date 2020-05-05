@@ -1,0 +1,4 @@
+testtest/resources/test1.txt
+в
+testtest/resources/test2.txt
+з
