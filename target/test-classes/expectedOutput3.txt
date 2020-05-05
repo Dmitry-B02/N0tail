@@ -1,2 +1,0 @@
-testtest/resources/test1.txt
-в
